@@ -1,7 +1,7 @@
 # aws_unit_testing_support
 ## Overview
 
-Automatically update the AMI of the EC2 template.
+Scripts supporting unit testing.
 
 ## Requirement
 
@@ -43,5 +43,27 @@ aws ec2 describe-security-groups \
 ```bash
 
 ./describe_security_groups.sh sg_list.txt
+
+```
+
+## How to Use TestNetConnection.ps1
+
+1. Write the destination
+```powershell
+
+$servers = @(
+    @{ Name = "8.8.8.8"; Port = 25 },
+    @{ Name = "www.sample.com"; Port = 80 },
+    @{ Name = "www.sample.com"; Port = 443 },
+    @{ Name = "vpce-xxxxxxxxxx.vpce-svc-xxxxxxxxx.ap-northeast-1.vpce.amazonaws.com"; Port = 22 }
+)
+
+```
+
+2. Running the Script
+
+```powershell
+
+.\TestNetConnection.ps1
 
 ```
